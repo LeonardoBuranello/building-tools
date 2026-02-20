@@ -123,7 +123,7 @@ background: var(--gr);
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
-margin: 0;
+margin: 16px;
 height: 100vh;
 overflow: hidden;
 grid-template-columns: 300px 1fr;
@@ -133,9 +133,12 @@ grid-template-columns: 300px 1fr;
 /* Applica cambiamenti sulla sidebar*/
 
 #ui, #ui-right {
+align-self: flex-start !important;
+display: block;
+scrollbar-width: thin;
 background: var(--sp);
 border: solid 1px rgb(from var(--button) r g b / 0.25) !important;
-margin: 20px;
+margin-bottom: 0;
 width: 500px;
 height: calc(100vh - 40px);
 padding: 16px;
@@ -146,15 +149,22 @@ border-radius: 24px;
 }
 
 
-#ui-right{
+#ui-right{ 
+/* Il panel resta fisso dall'alto
+e quando si apre non va in alto */
+height: 85vh;
+overflow-y: auto;
 display: flex;
 flex-direction: column;
 height: calc(100% - 40px);
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
+flex-direction: column;
 background: var(--sp);
 box-sizing: border-box;
 position: relative;
+margin-bottom: 0;
+padding-bottom: 0; /* Il button download sta attaccato */
 }
 
 .ui-components{
@@ -379,6 +389,21 @@ width: 100%;
 }
 
 
+#canvasWrapper canvas {
+  width: auto !important;       /* Permette alla larghezza di adattarsi */
+  height: auto !important;      /* Mantiene le proporzioni */
+  max-width: 90% !important;   /* Contiene il canvas dentro i 2 ui-panels */
+  
+  /* Limita l'altezza per non uscire dallo screen */
+  max-height: 100vh !important;  
+  
+  object-fit: contain !important; /* Mantiene le proporzioni dentro i limiti */
+  display: block;
+  margin: 0 auto; /* Canvas centrale */
+  border-radius: 8px;
+}
+
+
 /* DETAILS + SUMMARY */
 
 details{
@@ -526,13 +551,24 @@ a {
 /* Download button */
 
 .download-container {
-  
-  padding-top: 24px;
+  margin-bottom: 0;
+  position: sticky; /* resta in posizione*/
+  bottom: 0;
+  padding-top: 80px;
   padding-left: 4px;
-  padding-bottom: 12px;
+  padding-bottom: 24px;
   text-align: center;
   margin-top: auto;
   width: 100%;
+
+  /* Gradiente Smooth */
+  background: linear-gradient(to top, 
+    var(--sp) 0%,           /* Solido alla base */
+    var(--sp) 40%,          /* Solido fin sopra il bottone */
+    rgba(251, 254, 251, 0.8) 60%,  /* Inizia a sfumare con ease */
+    rgba(251, 254, 251, 0.4) 80%,  /* Quasi trasparente */
+    rgba(251, 254, 251, 0) 100%    /* Completamente invisibile */
+  );
 }
 
 
@@ -629,7 +665,7 @@ a {
   display: none; /* Avviso none */
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1200px) {
   #mobile-block {
     display: flex !important;
     position: fixed;
