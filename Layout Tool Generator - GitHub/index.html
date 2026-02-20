@@ -1,0 +1,305 @@
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- RESPONSIVENESS -->
+
+<div id="mobile-block">
+    <div class="block-content">
+      <h1>💻</h1>
+      <strong style="font-size: 16px;">Poster Generator Tool</strong>
+      <p style="font-size: 14px;">Hi! To use this generative tool, please access it from a <strong>Desktop</strong> device.</p>
+    </div>
+  </div>
+
+
+
+<!--Creo un div per inserire gli elementi di UI che mi interessano-->
+<div id="ui">
+
+
+<!-- Creo dei macro gruppi -->
+
+<!-- Scelgo grandezza Canvas -->
+<details open>
+
+        <summary>Canvas</summary>
+        <div class="ui-components">
+        <label>Format</label>
+        <select id="formatSelector">
+        <option value="landscape" selected> Landscape 16:9</option>
+        <option value="reel"> Reel 9:16</option>
+        <option value="square">Square 1:1</option>
+        <option value="portrait"> Portrait 4:5</option>
+        </select>
+        </div>
+
+        <div class="ui-components">
+        <label>Bg Color</label>
+        <input type="color" id="bgColor" value="#011C27">
+        </div>
+
+</details>
+
+
+<details open>
+    <summary>Type</summary>
+
+        <!-- Headline Visibility -->
+        <div class="ui-components">
+        <label>Show</label>
+        <input type="checkbox" id="showHeadline" checked>
+        </div>
+        
+        <!-- Text Input -->
+        <div class="ui-components">
+        <label>Headline</label>
+        <input type="textarea" id="headline" value="Layout" placeholder="Write something...">
+        </div>
+
+  
+        <!-- Font Size -->
+        <div class="ui-components">
+        <label>Font Size</label>
+        <input type="range" id="fontsize" value="130" min="20" max="240">
+        </div>
+
+
+        <!-- Font STYLE -->
+        <div class="ui-components">
+        <label>Font Style</label>
+        <input type="range" id="fontStyleSlider" value="2" min="0" max="4" step="1">
+        </div>
+
+
+        <!-- Text Align -->
+        <div class="ui-components">
+        <label>Alignment</label>
+
+        <select id="textAlignSelector">
+        <option value="center" selected> Center</option>
+        <option value="top-left"> Top Left</option>
+        <option value="top-center"> Top Center</option>
+        <option value="top-right"> Top Right</option>
+        <option value="bottom-left"> Bottom Left</option>
+        <option value="bottom-center"> Bottom Center</option>
+        <option value="bottom-right"> Bottom Right</option>
+        </select>
+
+        </div>
+
+        <!-- Text Color -->
+
+        <div class="ui-components">
+        <label>Text Color</label>
+        <input type="color" id="colorpicker" value="#9dff00">
+        </div>
+
+</details>
+
+
+
+<!-- Media -->
+
+<details open> 
+        <summary>Media</summary>
+        <!-- Img Upload -->
+        <div class="ui-components">
+        <label>Upload<br>(.png, .mp4) </label>
+        <label for="imageUpload" class="custom-button">Browse file</label>
+        <input type="file" id="imageUpload" accept="image/*,video/*" style="display: none;">
+        </div>
+</details>
+
+
+<!-- Concentric Rings -->
+
+<details>
+        <summary>Concentric Rings</summary>
+
+        <!-- Visibility -->
+        <div class="ui-components">
+        <label>Show</label>
+        <input type="checkbox" id="showRings" checked>
+        </div>
+
+        <!-- Shape Diameter -->
+        <div class="ui-components">
+        <label>Diameter</label>
+        <input type="range" id="diameter" min="0" max="1000" value="500">
+        </div>
+
+        <!-- Number of rings -->
+        <div class="ui-components">
+        <label>Rings Number</label>
+        <input type="range" id="numRings" min="1" max="50" value="26">
+        </div>
+
+        <!-- Color -->
+        <div class="ui-components">
+        <label>Rings Color</label>
+        <input type="color" id="ringsColorPicker" value="#FE4A49">
+        </div>
+
+        <!-- Rings Opacity-->
+        <div class="ui-components">
+        <label>Rings Opacity</label>
+        <input type="range" id="ringsOpacity" min="0" max="200" value="100">
+        </div>
+        </div>
+
+</details>
+
+
+
+<!--Creo un altro div per l'artboard-->
+<div id="artboard">
+<div id="canvasWrapper"></div>
+</div>
+
+
+
+
+<!-- SECOND UI PANEL -->
+
+<div id="ui-right">
+
+
+
+<!-- PARTICLES-->
+
+<details open>
+        <summary>Particles</summary>
+
+         <!-- Particles Visibility -->
+        <div class="ui-components">
+        <label>Show</label>
+        <input type="checkbox" id="showParticles">
+        </div>
+
+
+        <!-- Shape dropdown -->
+
+        <div class="ui-components">
+        <label>Shape</label>
+        <select id="particleSelector">
+        <option value="circle" selected> Circle</option>
+        <option value="square"> Square</option>
+        <option value="triangle"> Triangle</option>
+        <option value="diamond"> Diamond</option>
+        </select>
+        </div>
+
+         <!-- Particles Shape Size -->
+        <div class="ui-components">
+        <label>Size</label>
+        <input type="range" id="particleShapeSize" value="150" min="50" max="250">
+        </div>
+
+
+        <!-- Icon Upload -->
+        <div class="ui-components">
+        <label>Upload SVG </label>
+        <label for="svgUpload" class="svg-button">Browse SVG</label>
+        <input type="file" id="svgUpload" accept="image/svg+xml" style="display: none;">
+        </div>
+
+        <!-- Particles Color -->
+        <div class="ui-components">
+        <label>Set Color</label>
+        <input type="color" id="particleColorPicker" value="#FAA6FF">
+        </div>
+
+           <!-- Particles Amount -->
+        <div class="ui-components">
+        <label>Amount</label>
+        <input type="range" id="particleAmount" value="2525" min="100" max="5000" step="100">
+        </div>
+
+          <!-- Particles Velocity -->
+        <div class="ui-components">
+        <label>Speed</label>
+        <input type="range" id="particleVelocity" value="150" min="50" max="250">
+        </div>
+
+</details>
+
+
+          <!-- Values Checkboxes -->
+
+<details open>
+        <summary>Values</summary>
+        <div class="ui-components">
+        <label> Show All</label>
+        <input type="checkbox" id="showValues" checked>
+        </div>
+
+        <div class="ui-components">
+        <label>Set Color</label>
+        <input type="color" id="valuesColorPicker" value="#00E5E8">
+        </div>
+
+</details>
+
+
+<details>
+        <summary>Abstract</summary>
+
+        <!-- Abstract -->
+        <div id="paragraph" class="ui-components">
+
+        <p>This creative experiment investigates <br>the possibility
+        of generating a layout from scratch through the
+        construction <br>of a system. The project emerges
+        from the combination of multiple parameters which,
+        through their interaction, define an open and
+        variable structure. The output is not understood
+        as a final result, but rather as a temporary
+        manifestation of a broader creative process. 
+        The focus lies on method, experimentation,
+        and the generative logic that drives the system.
+        Through the course
+        <a href="https://timrodenbroeker.de">Building
+        Tools by Tim Rodenbröker</a>, I deepened
+        my use of p5.js as a tool for systemic creation,
+        approaching code not only as a technical medium,
+        but as a design practice. I had a lot of fun!
+        </p>
+        </div>
+</details>
+
+
+<!-- Suggestion -->
+<div class="video-tip">
+<p><strong>Please Note:</strong> to save a video output,
+record your screen: Mac: ⌘ + Shift + 5; Windows:
+Win + Alt + R.</p>
+</div>
+
+
+<!-- Download Button -->
+<div class="download-container">
+    <button id="download-poster" class="download-button">Download Poster (PNG)</button>
+</div>
+
+
+
+
+
+
+
+<!--Collego la library di p5.js con il link Content Delivery Network CDN-->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+
+<!--Collego il file JS--> 
+<script src="./sketch.js"></script>
+
+
+
+
+</body>

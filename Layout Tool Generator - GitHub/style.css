@@ -1,0 +1,667 @@
+
+
+
+/* FONT UI: DM Sans */
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DMSans_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/DMSans_18pt-Medium.ttf') format('truetype');
+  font-weight: 450;
+  font-style: normal;
+}
+
+
+/* FONT HEADLINE: RAVENNA SERIAL (WEB) */
+
+@font-face {
+  font-family: 'Ravenna Serial';
+  src: url('fonts/ravenna_serial-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ravenna Serial';
+  src: url('fonts/ravenna_serial-italic-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ravenna Serial';
+  src: url('fonts/ravenna_serial-medium-webfont.woff') format('woff');
+  font-weight: 450;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ravenna Serial';
+  src: url('fonts/ravenna_serial-mediumitalic-webfont.woff') format('woff');
+  font-weight: 450;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ravenna Serial';
+  src: url('fonts/ravenna_serial-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+/* FONT VALUES: DM MONO*/
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('fonts/DMMono-Medium.ttf') format('truetype');
+}
+
+
+
+/* VARIABLES */
+
+:root {
+--height: 28px;
+--font: 'DM Sans', sans-serif;
+--weight: 400;
+--bookweight: 450;
+--regular: normal;
+--italic: italic;
+--ease: transform 0.3s ease;
+}
+
+
+:root {
+  /* Color */
+--bg: #011C27;
+--st: #FAA6FF;
+--nd: #4F172A;
+--rd: #00E5E8;
+--acc: #9dff00;
+--ext: #FE4A49;
+--wh: #ffffff;
+--bl: #000;
+--ye: #ffea00;
+--sp: #fbfefb;
+--gr: #e5e6e4;
+--button: #6c757d;
+
+}
+
+
+
+/* Inizio standard CSS */
+
+body, html{
+margin: 0;
+padding: 0;
+font-family: var(--font);
+font-weight: var(--weight);
+
+}
+
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+
+
+body{
+
+background: var(--gr);
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin: 0;
+height: 100vh;
+overflow: hidden;
+grid-template-columns: 300px 1fr;
+}
+
+
+/* Applica cambiamenti sulla sidebar*/
+
+#ui, #ui-right {
+background: var(--sp);
+border: solid 1px rgb(from var(--button) r g b / 0.25) !important;
+margin: 20px;
+width: 500px;
+height: calc(100vh - 40px);
+padding: 16px;
+font-size: 13px;
+box-sizing: border-box;
+overflow-y: auto;
+border-radius: 24px;
+}
+
+
+#ui-right{
+display: flex;
+flex-direction: column;
+height: calc(100% - 40px);
+align-items: center;
+justify-content: center;
+background: var(--sp);
+box-sizing: border-box;
+position: relative;
+}
+
+.ui-components{
+display: grid;
+grid-template-columns: 100px 1fr;
+align-items: center;
+column-gap: 0px;
+padding-bottom: 12px;
+padding-top: 12px;
+width: 100%;
+}
+
+
+
+/*INPUTS */
+
+input{
+width: 100%;
+}
+
+/* Group types all-together */
+/* scrivo il codice 1 volta sola */
+
+
+input [type=text] {
+box-shadow: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background: transparent;  /* Rimuove il bianco di default */
+border: none;             /* Rimuove il bordo standard */
+outline: none; 
+box-sizing: border-box;        
+}
+
+
+
+
+/* CHECKBOXES */
+
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: 1.2px solid #e5e6e4 !important;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  margin: 0;
+}
+/* Checkbox --> Checked */
+input[type="checkbox"]:checked {
+  background-color: var(--gr);
+  border: 1.2px solid rgb(from var(--button) r g b / 0.35)!important;
+  border-color: var(--button);
+}
+/* Spunta interna */
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  margin-left: 5.21px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: 0.1px solid var(--bl);
+  border-width: 0 1.8px 1.8px 0;
+  transform: rotate(45deg);
+}
+  /* Checkboxes Hover */
+  input[type="checkbox"]:hover {
+  border-color: rgba(from var(--button) r g b / 0.5) !important;
+  background-color: rgba(from var(--button) r g b / 0.05) !important;
+}
+
+
+/* Headline box UI */
+
+#headline {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 100% !important;
+  height: var(--height) !important;
+  border-radius: 8px !important;
+  border: 1px solid #e5e6e4 !important;
+  padding: 0 8px !important;
+  box-sizing: border-box !important;
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  font-style: var(--regular)!important;
+  color: var(--bl) !important;
+}
+
+#headline::placeholder {
+  color: rgb(from var(--button) r g b / 0.5) !important;
+  font-style: var(--italic);
+}
+
+#headline:hover {
+  background: rgb(from var(--gr) r g b / 0.15) !important;
+  border-color: rgb(from var(--button) r g b / 0.35) !important;
+  transition: var(--ease) !important;
+  color: var(--bl) !important;
+}
+
+
+/* Buttons */
+
+.custom-button, .svg-button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 100% !important;
+  height: var(--height) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgb(from var(--button) r g b / 0.15) !important;
+  background: var(--gr) !important;
+  box-sizing: border-box !important;
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  color: var(--bl) !important;
+  padding-top: 5px !important;
+}
+
+.custom-button:hover, .svg-button:hover {
+  background: rgb(from var(--button) r g b / 0.15) !important;
+  border-color: rgb(from var(--button) r g b / 0.35) !important;
+  transition: var(--ease) !important;
+  color: var(--bl) !important;
+}
+
+
+/* SLIDERS */
+
+input[type="range"] { /* Rimuove l'estetica dello slider */
+  appearance: none;
+  width: 100%;
+  background: var(--gr);
+  height: 4px;
+  border-radius: 8px;
+}
+
+/* Slider Thumb per Safari e Chrome */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  background: var(--bl);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+::-webkit-slider-thumb:hover{
+  opacity: 0.85;
+}
+
+/* Slider Thumb Firefox */
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  background: var(--bl);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* Color input */
+input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1.2px solid var(--gr) !important;
+  width: 100%;       
+  height: var(--height); 
+  cursor: pointer;
+  background: var(--sp); 
+  border-radius: 9px !important;
+}
+
+input[type="color"]:hover {
+  border-radius: 9px !important;
+  border: 1.2px solid rgba(from var(--button) r g b / 0.35) !important;
+  opacity: 0.85;
+  transition: var(--ease);
+
+}
+
+
+/* Chrome e Safari */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 8px !important;
+}
+
+/* Firefox */
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 8px !important;
+}
+
+
+
+/* Artboard */
+
+#artboard{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: var(--gr);
+height: 100vh;
+width: 100%;
+}
+
+
+/* DETAILS + SUMMARY */
+
+details{
+width: 100%;
+padding: 16px;
+border: 2px solid var(--gr);
+margin-bottom: 8px;
+border-radius: 8px;
+font-weight: var(--weight);
+}
+
+/* Quando i gruppi sono chiusi */
+details summary{
+  font-weight: var(--bookweight);
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* Quando i gruppi sono open */
+details[open] summary{
+font-weight: var(--bookweight);
+border-bottom: 2px solid var(--gr);
+padding: 8px;
+padding-bottom: 16px;
+cursor: pointer;
+margin-bottom: 24px;
+}
+
+
+#formatSelector, #particleSelector, #textAlignSelector {
+  cursor: pointer;
+  display: inline-block;
+  /* Rimuove la freccia brutta di sistema */
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100% !important;
+  height: 28px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgb(from var(--button) r g b / 0.15) !important;
+  background-color: none;
+  box-sizing: border-box !important;
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  color: var(--bl) !important;
+/* Testo centrato */
+  text-align: center !important;
+  text-align-last: center !important;
+/* Frecce con SVG */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M3 4l2-2 2 2M3 6l2 2 2-2' stroke='black' stroke-width='1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 4px center !important; /* 4px da destra */
+  background-size: 12px !important; /* Dimensione double accordion */
+  /* Spazio per impedire al testo di sovrapporsi all'SVG */
+  padding-right: 12px !important; 
+  padding-left: 10px !important;
+  text-align: left !important;
+}
+
+#formatSelector:hover, #textAlignSelector:hover, #particleSelector:hover {
+  background-color: rgb(from var(--gr) r g b / 0.15) !important;
+  border-color: rgb(from var(--button) r g b / 0.35) !important;
+  transition: var(--ease) !important;
+  color: var(--bl) !important;
+}
+
+
+
+/* Tolgo la freccia di default */
+summary{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: var(--bookweight);
+}
+
+
+summary::-webkit-details-marker {
+  display: none; /* Rimuove marker di default */
+}
+
+/* GLIFO */
+
+summary::before {
+  content: '\203A'; /* Unicode per il glifo */
+  padding-bottom: 2px;
+  font-family: var(--font);
+  font-size: 16px;
+  display: inline-block;
+  transition: var(--ease);
+}
+
+/* Rotazione GLIFO quando open */
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+
+
+#paragraph {
+    grid-column: span 2;
+    display: block !important;
+    width: 100%;
+}
+
+#paragraph p {
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+/* Link (Abstract) */
+a {
+    color: var(--bl);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+}
+
+
+/* Tip per registrare schermo */
+
+.video-tip {
+  background: rgb(from var(--ye) r g b / 0.35) !important;
+  border: 2px solid rgb(from var(--bl) r g b / 0.05) !important;
+  padding: 16px 16px 16px 20px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 12px;
+  color: var(--bl);
+  margin-top: 1px;
+}
+
+.video-tip strong {
+  font-weight: var(--bookweight);
+}
+
+
+
+
+/* Download button */
+
+.download-container {
+  
+  padding-top: 24px;
+  padding-left: 4px;
+  padding-bottom: 12px;
+  text-align: center;
+  margin-top: auto;
+  width: 100%;
+}
+
+
+.download-button {
+  background-color: var(--bl) !important;
+  color: var(--wh);
+  border: 1px solid rgb(from var(--bl) r g b / 0.35) !important;
+  padding: 8px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 14px;
+}
+
+.download-button:hover {
+  background-color: rgb(from var(--bl) r g b / 0.85) !important;
+  border-color: rgb(from var(--bl) r g b / 0.5) !important;
+  transition: var(--ease) !important;
+}
+
+
+
+
+
+
+/* RESPONSIVENESS */
+
+/* Desktop */
+
+@media (min-width: 769px) and (max-width: 1560px) {
+  body {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 400px)) !important;    grid-template-areas: 
+      "artboard artboard"
+      "left-ui right-ui" !important;
+
+      justify-content: center !important;
+      column-gap: 16px !important;
+    
+    height: auto !important;
+    overflow-y: auto !important;
+    background: var(--gr);
+    gap: 0;
+  }
+
+  #artboard {
+    grid-area: artboard;
+    width: 100% !important;
+    height: 70vh !important;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  #ui {
+    grid-area: left-ui;
+    width: auto !important;
+    margin: 0 10px 40px 20px !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    max-width: 400px !important;
+  }
+
+  #ui-right {
+    grid-area: right-ui;
+    width: auto !important;
+    margin: 0 20px 40px 10px !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    display: block !important;
+    max-width: 400px !important;
+  }
+
+  /* Label sopra l'input */
+  .ui-components {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  #headline, input[type="range"], select, input[type="color"], 
+  .custom-button, .svg-button {
+    width: 100% !important;
+  }
+}
+
+
+/* iPad e iPhone */
+
+#mobile-block {
+  display: none; /* Avviso none */
+}
+
+@media (max-width: 1366px) {
+  #mobile-block {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--acc) !important;
+    color: var(--bl) !important;
+    z-index: 999999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    font-family: var(--font);
+  }
+
+  #mobile-block h1 {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  #mobile-block p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 350px;
+    font-weight: var(--weight);
+  }
+
+  /* Scomparsa totale del tool */
+  #ui, #ui-right, #artboard {
+    display: none !important;
+  }
+}
